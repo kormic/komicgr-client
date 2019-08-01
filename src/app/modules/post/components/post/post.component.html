@@ -1,0 +1,41 @@
+<section class="post-wrapper">
+    <div class="post-metadata">
+        <mat-card class="author-section">
+            <mat-card-title>Author</mat-card-title>
+            <mat-card-content>
+                <div class="post-metadata-content">
+                    <img src="{{environment.url + userInfo.profileImageUrl + '?' + time}}" alt="Profile picture" onError="this.src='../../../../../assets/images/profile-default.ico';">
+                    <span>{{userInfo.username}}</span>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card [ngClass]="{ 'mat-elevation-z10': likesHovered}" (mouseenter)="likesHovered = true" (mouseleave)="likesHovered = false" class="likes-section" (click)="togglePostLike()">
+            <mat-card-title>Likes</mat-card-title>
+            <mat-card-content>
+                <div class="post-metadata-content">
+                    <mat-icon>thumb_up</mat-icon>
+                    <span>{{post.likes ? post.likes : 0}}</span>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="share-section disabled">
+            <mat-card-title>Share</mat-card-title>
+            <mat-card-content>
+                <div class="profile-card-socials">
+                    <img src="../../../../../assets/social-icons/icon-facebook.png" />
+                    <img src="../../../../../assets/social-icons/icon-twitter.png" />
+                    <img src="../../../../../assets/social-icons/icon-linkedin.png" />
+                    <img src="../../../../../assets/social-icons/icon-github.png" />
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="post-section">
+        <mat-card>
+            <mat-card-content>
+                <article class="post" [innerHTML]="post.body | safeHtml">
+                </article>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</section>

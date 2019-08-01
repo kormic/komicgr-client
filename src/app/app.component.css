@@ -1,0 +1,13 @@
+main {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@media only screen and (min-width: 1024px) {
+    main {
+        top: 125px;
+    }
+}

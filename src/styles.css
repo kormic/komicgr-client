@@ -1,0 +1,25 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.disabled {
+    opacity: 0.3;
+}
+
+mat-paginator {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.space-with-paginator {
+    padding-bottom: 90px;
+}

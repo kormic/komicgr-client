@@ -1,0 +1,24 @@
+<mat-nav-list *ngIf="authService.$isLoggedIn | async" [ngClass]="{'horizontal-layout': showItemsHorizontal}">
+    <h3 *ngIf="showSubHeaders" mat-subheader>Categories</h3>
+    <a mat-list-item [routerLink]="['/posts']" [queryParams]="{ categoryId: category.id }"
+        *ngFor="let category of categories" (click)="closeSideNav.emit()">
+        <img mat-list-icon src='../../../../../assets/images/categories/{{category.id}}.png' alt="category-logo" />
+        <h4 mat-line>{{category.name}}</h4>
+    </a>
+    <mat-divider [vertical]="showItemsHorizontal"></mat-divider>
+    <h3 *ngIf="showSubHeaders" mat-subheader>My account</h3>
+    <a mat-list-item [routerLink]="['/my-posts']" (click)="closeSideNav.emit()">
+        <mat-icon mat-list-icon>subject</mat-icon>
+        <h4 mat-line>My Posts</h4>
+    </a>
+    <a mat-list-item [routerLink]="['/profile']" (click)="closeSideNav.emit()">
+        <mat-icon mat-list-icon>face</mat-icon>
+        <h4 mat-line>My Profile</h4>
+    </a>
+</mat-nav-list>
+<mat-nav-list *ngIf="!(authService.$isLoggedIn | async)" [ngClass]="{'horizontal-layout': showItemsHorizontal}">
+    <a mat-list-item [routerLink]="['/login']" (click)="closeSideNav.emit()">
+        <mat-icon class="pd-right">exit_to_app</mat-icon>
+        <h3 [align]="'center'" mat-list-item>Please login</h3>
+    </a>
+</mat-nav-list>

@@ -1,0 +1,208 @@
+<!-- <section class="register-form">
+  <mat-card>
+    <mat-card-title>
+      Registration Form
+    </mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="registerForm">
+        <mat-form-field>
+            <input
+              type="text" 
+              matInput
+              placeholder="Enter your first name"
+              name="firstName"
+              formControlName="firstNameControl">
+          <mat-error *ngIf="registerForm.get('firstNameControl').hasError('required')">First name is required</mat-error>
+          <mat-error *ngIf="!registerForm.get('firstNameControl').hasError('required')">First name is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input
+              type="text" 
+              matInput
+              placeholder="Enter your last name"
+              name="lastName"
+              formControlName="lastNameControl">
+          <mat-error *ngIf="registerForm.get('lastNameControl').hasError('required')">Last name is required</mat-error>
+          <mat-error *ngIf="!registerForm.get('lastNameControl').hasError('required')">Last name is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input
+              type="text" 
+              matInput
+              placeholder="Enter a user name"
+              name="userName"
+              formControlName="userNameControl">
+          <mat-error *ngIf="registerForm.get('userNameControl').hasError('required')">User name is required</mat-error>
+          <mat-error *ngIf="!registerForm.get('userNameControl').hasError('required')">User name is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            type="email" 
+            matInput
+            placeholder="Your email"
+            name="email"
+            email
+            formControlName="emailControl">
+          <mat-error *ngIf="registerForm.get('emailControl').hasError('required')">Email is required</mat-error>
+          <mat-error *ngIf="!registerForm.get('emailControl').hasError('required')">Email is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input
+              type="text" 
+              matInput
+              placeholder="Enter a job description"
+              name="jobDesc"
+              formControlName="jobDescControl">
+          <mat-error *ngIf="registerForm.get('jobDescControl').hasError('required')">Job Description is required</mat-error>
+          <mat-error *ngIf="!registerForm.get('jobDescControl').hasError('required')">Job Description is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input
+              type="text" 
+              matInput
+              placeholder="Enter an address"
+              name="address"
+              formControlName="addressControl">
+          <mat-error *ngIf="registerForm.get('addressControl').hasError('required')">Address is required</mat-error>
+          <mat-error *ngIf="!registerForm.get('addressControl').hasError('required')">Address is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input
+              type="tel" 
+              matInput
+              placeholder="Enter a mobile phone number"
+              name="mobile"
+              formControlName="telControl">
+        </mat-form-field>
+        <mat-form-field hintLabel="Should be at least 8 characters long">
+          <input 
+            type="password" 
+            matInput
+            placeholder="Enter password"
+            name="password"
+            formControlName="passwordControl">
+          <mat-error *ngIf="registerForm.get('passwordControl').hasError('minlength')">Has to be at least 8 characters long</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input 
+              type="password" 
+              matInput
+              placeholder="Confirm password"
+              name="confirmPassword"
+              formControlName="confirmPasswordControl">
+            <mat-error *ngIf="registerForm.get('confirmPasswordControl').hasError('passwordMismatch')">Passwords don't match</mat-error>
+        </mat-form-field>
+        <mat-checkbox formControlName="termsControl" color="primary" name="agree">Agree to Terms and Conditions</mat-checkbox>
+        <button type="submit" mat-raised-button color="primary" [disabled]="registerForm.invalid" (click)="onSubmit()">Submit</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section> -->
+<section class="register-form">
+  <mat-card>
+      <mat-card-title>
+        Registration Form
+      </mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="registerForm">
+            <mat-vertical-stepper>
+                <mat-step label="Who Are You" [formGroup]="registerForm.get('whoAreYou')" [stepControl]="registerForm.get('whoAreYou')">
+                  <mat-form-field>
+                      <input
+                        type="text" 
+                        matInput
+                        placeholder="Enter your first name"
+                        name="firstName"
+                        formControlName="firstNameControl">
+                    <mat-error *ngIf="registerForm.get('whoAreYou').get('firstNameControl').hasError('required')">First name is required</mat-error>
+                    <mat-error *ngIf="!registerForm.get('whoAreYou').get('firstNameControl').hasError('required')">First name is invalid</mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <input
+                        type="text" 
+                        matInput
+                        placeholder="Enter your last name"
+                        name="lastName"
+                        formControlName="lastNameControl">
+                    <mat-error *ngIf="registerForm.get('whoAreYou').get('lastNameControl').hasError('required')">Last name is required</mat-error>
+                    <mat-error *ngIf="!registerForm.get('whoAreYou').get('lastNameControl').hasError('required')">Last name is invalid</mat-error>
+                  </mat-form-field>
+                </mat-step>
+                <mat-step label="Personal Details" [formGroup]="registerForm.get('personalDetails')" [stepControl]="registerForm.get('personalDetails')">
+                  <mat-form-field>
+                      <input
+                        type="text" 
+                        matInput
+                        placeholder="Enter a job description"
+                        name="jobDesc"
+                        formControlName="jobDescControl">
+                    <mat-error *ngIf="registerForm.get('personalDetails').get('jobDescControl').hasError('required')">Job Description is required</mat-error>
+                    <mat-error *ngIf="!registerForm.get('personalDetails').get('jobDescControl').hasError('required')">Job Description is invalid</mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <input
+                        type="text" 
+                        matInput
+                        placeholder="Enter an address"
+                        name="address"
+                        formControlName="addressControl">
+                    <mat-error *ngIf="registerForm.get('personalDetails').get('addressControl').hasError('required')">Address is required</mat-error>
+                    <mat-error *ngIf="!registerForm.get('personalDetails').get('addressControl').hasError('required')">Address is invalid</mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <input
+                        type="tel" 
+                        matInput
+                        placeholder="Enter a mobile phone number"
+                        name="mobile"
+                        formControlName="telControl">
+                  </mat-form-field>
+                </mat-step>
+                <mat-step label="Account Details" [formGroup]="registerForm.get('accountDetails')" [stepControl]="registerForm.get('accountDetails')">
+                  <mat-form-field>
+                      <input
+                        type="text" 
+                        matInput
+                        placeholder="Enter a user name"
+                        name="userName"
+                        formControlName="userNameControl">
+                    <mat-error *ngIf="registerForm.get('accountDetails').get('userNameControl').hasError('required')">User name is required</mat-error>
+                    <mat-error *ngIf="!registerForm.get('accountDetails').get('userNameControl').hasError('required')">User name is invalid</mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input
+                      type="email" 
+                      matInput
+                      placeholder="Your email"
+                      name="email"
+                      email
+                      formControlName="emailControl">
+                    <mat-error *ngIf="registerForm.get('accountDetails').get('emailControl').hasError('required')">Email is required</mat-error>
+                    <mat-error *ngIf="!registerForm.get('accountDetails').get('emailControl').hasError('required')">Email is invalid</mat-error>
+                  </mat-form-field>
+                  <mat-form-field hintLabel="Should be at least 8 characters long">
+                    <input 
+                      type="password" 
+                      matInput
+                      placeholder="Enter password"
+                      name="password"
+                      formControlName="passwordControl">
+                    <mat-error *ngIf="registerForm.get('accountDetails').get('passwordControl').hasError('minlength')">Has to be at least 8 characters long</mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <input 
+                        type="password" 
+                        matInput
+                        placeholder="Confirm password"
+                        name="confirmPassword"
+                        formControlName="confirmPasswordControl">
+                      <mat-error *ngIf="registerForm.get('accountDetails').get('confirmPasswordControl').hasError('passwordMismatch')">Passwords don't match</mat-error>
+                  </mat-form-field>
+                  <mat-checkbox formControlName="termsControl" color="primary" name="agree">Agree to Terms and Conditions</mat-checkbox>
+                  <button type="submit" mat-raised-button color="primary" [disabled]="registerForm.invalid" (click)="onSubmit()">Register</button>
+                </mat-step>
+          </mat-vertical-stepper>
+        </form>
+      </mat-card-content>
+  </mat-card>
+</section>

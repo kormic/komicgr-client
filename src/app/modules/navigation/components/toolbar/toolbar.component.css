@@ -1,0 +1,102 @@
+.pd-right {
+    padding-right: 3px;
+}
+
+mat-toolbar-row {
+    height: 70px;
+}
+
+.menu-button {
+    display: none;
+}
+
+.logo {
+    background: url('../../../../../assets/images/komicgr_logo_small_text.png') no-repeat top center;
+    height: 60px;
+    width: 100%;
+    background-size: contain;
+}
+
+.logo:hover,
+.toolbar-links> li:hover {
+    cursor: pointer;
+}
+
+.toolbar-menu-container {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.toolbar-links {
+    display: none;
+}
+
+.toolbar-links-container {
+    display: none;
+}
+
+.subheader {
+    background-color: #FFF;
+}
+
+@media only screen and (max-width: 1023px) {
+    .menu-button {
+        display: block;
+    }
+
+    .toolbar-menu-container {
+        display: block;
+    }
+
+    .subheader {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    a {
+        color: #FFF;
+    }
+
+    .logo {
+        background: url('../../../../../assets/images/komicgr_logo_circle.png') no-repeat center left;
+        background-size: auto;
+        height: 40px;
+        background-size: contain;
+    }
+
+    .toolbar-links-container {
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+    }
+
+    .toolbar-links {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        justify-content: flex-end;
+        flex-basis: 280px;
+    }
+
+    .toolbar-links> li {
+        display: flex;
+        align-items: center;
+    }
+
+    .toolbar-links> li:hover,
+    .toolbar-links> li:active,
+    .toolbar-links> li > a:hover,
+    .toolbar-links> li > a:active {
+        color: lightgray;
+    }
+
+    .subheader {
+        display: flex;
+        justify-content: center;
+    }
+}

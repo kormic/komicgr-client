@@ -1,0 +1,36 @@
+.register-form {
+    width: 75%;
+    margin: 20px  auto;
+}
+
+mat-form-field,
+mat-checkbox,
+button[mat-raised-button] {
+    width: 100%;
+}
+
+button[mat-raised-button] {
+    margin-top: 15px;
+}
+
+mat-checkbox {
+    margin: 10px 0;
+}
+
+.invalid-stepper {
+    background-color: red;
+}
+
+.register-form> form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+    .register-form {
+        width: 55%;
+        margin: 20px auto;
+    }
+} 

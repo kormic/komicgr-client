@@ -1,0 +1,114 @@
+<div class="profile-wrapper">
+    <article class="profile-card">
+        <mat-card>
+            <mat-card-content>
+                <section class="profile-card-body">
+                    <div class="left-side">
+                        <!-- <div mat-card-avatar class="header-image"
+                            [ngStyle]="{'background-image': 'url(' + 'http://localhost:3000/' + userProfile.profileImageUrl + ')'}">
+                        </div> -->
+                        <div mat-card-avatar class="header-image">
+                            <img [src]="environment.url + userProfile.profileImageUrl + '?' + time" alt="Profile Image" onError="this.src='../../../../../assets/images/profile-default.ico';">
+                        </div>
+                        <h3>{{userProfile.username}}</h3>
+                        <span>{{userProfile.job_desc}}</span>
+                        <input #uploadInput [hidden]="true" name="userFile" type="file" multiple (change)="fileUploadInputChanged($event)" accept="image/*">
+                        <button mat-raised-button color="primary" (click)="uploadInput.click()">
+                            <mat-icon>cloud_upload</mat-icon>
+                            Upload Image
+                        </button>
+                    </div>
+                    <div class="right-side">
+                        <h2 class="details-header">Details</h2>
+                        <div class="info-line">
+                            <label>
+                                Name
+                            </label>
+                            <span class="info-line-value">
+                                {{userProfile.first_name + ' ' + userProfile.last_name}}
+                            </span>
+                        </div>
+                        <div class="info-line">
+                            <label>
+                                Address
+                            </label>
+                            <span class="info-line-value">
+                                {{userProfile.address}}
+                            </span>
+                        </div>
+                        <div class="info-line">
+                            <label>
+                                Phone
+                            </label>
+                            <span class="info-line-value">
+                                {{userProfile.mobile}}
+                            </span>
+                        </div>
+                        <div class="info-line">
+                            <label>
+                                Email
+                            </label>
+                            <span class="info-line-value">
+                                {{userProfile.email}}
+                            </span>
+                        </div>
+                        <div class="profile-card-socials">
+                            <img src="../../../../../assets/social-icons/icon-facebook.png" />
+                            <img src="../../../../../assets/social-icons/icon-twitter.png" />
+                            <img src="../../../../../assets/social-icons/icon-linkedin.png" />
+                            <img src="../../../../../assets/social-icons/icon-github.png" />
+                        </div>
+                    </div>
+                </section>
+            </mat-card-content>
+        </mat-card>
+    </article>
+    <article class="profile-card">
+        <mat-card>
+            <mat-card-content>
+                <section>
+                    <div class="stats-info-wrapper">
+                        <ul class="stats-info disabled">
+                            <li>
+                                Posts
+                            </li>
+                            <li>
+                                --
+                            </li>
+                        </ul>
+                        <ul class="stats-info disabled">
+                            <li>
+                                Friends
+                            </li>
+                            <li>
+                                --
+                            </li>
+                        </ul>
+                        <ul class="stats-info">
+                            <li>
+                                Role
+                            </li>
+                            <li>
+                                {{userProfile.role}}
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </mat-card-content>
+        </mat-card>
+    </article>
+    <article class="profile-card">
+        <mat-card>
+            <mat-card-content>
+                <section class="info-line">
+                    <label>
+                        Member Since
+                    </label>
+                    <span class="info-line-value">
+                        {{userProfile.registration_date | date}}
+                    </span>
+                </section>
+            </mat-card-content>
+        </mat-card>
+    </article>
+</div>

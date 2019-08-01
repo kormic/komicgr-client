@@ -1,0 +1,16 @@
+mat-sidenav-container, mat-sidenav, mat-sidenav-container {
+    height: 100%;
+}
+
+mat-sidenav {
+    width: 250px;
+}
+
+@media only screen and (min-width: 1024px) {
+    /* mat-sidenav-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    } */
+}
+

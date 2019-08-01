@@ -1,0 +1,48 @@
+mat-form-field {
+    display: block;
+}
+
+mat-paginator {
+    padding-right: 100px;
+}
+
+[mat-fab] {
+    z-index: 9999;
+}
+
+button[mat-raised-button] {
+    /* width: 100%; */
+    margin-top: 8px;
+}
+
+button[mat-fab] {
+    position: fixed;
+    right: 30px;
+    bottom: 10px;
+}
+
+.filters-wrapper,
+.my-posts {
+    padding: 10px;
+}
+
+@media only screen and (min-width: 1023px) {
+    .my-posts-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    .filters-wrapper,
+    .my-posts {
+        padding: 10px;
+        flex: 1;
+    }
+    
+    .filters-wrapper {
+        flex-basis: 20%;
+    }
+    
+    .my-posts {
+        flex-basis: 80%;
+    }
+}

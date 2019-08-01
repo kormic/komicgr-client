@@ -1,0 +1,35 @@
+<section class="login-form">
+  <mat-card>
+    <mat-card-title>
+      Login Form
+    </mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="form" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input
+            type="text" 
+            matInput
+            placeholder="Your username"
+            name="username"
+            formControlName="username">
+        <mat-hint>Please enter a valid username</mat-hint>
+        <mat-error *ngIf="form.get('username').hasError('required')">Fill in your username</mat-error>
+        <mat-error *ngIf="!form.get('username').hasError('required')">Invalid username</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input 
+            type="password" 
+            matInput
+            placeholder="Your password"
+            name="password"
+            formControlName="password">
+          <mat-hint>Please enter your password</mat-hint>
+          <mat-error *ngIf="form.get('password').hasError('required')">Fill in your password</mat-error>
+          <mat-error *ngIf="!form.get('password').hasError('required')">Must be at least 6 characters long</mat-error>
+        </mat-form-field>
+        <mat-checkbox color="primary" name="agree" formControlName="remember">Remember me</mat-checkbox>
+        <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Submit</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>

@@ -1,0 +1,62 @@
+<section class=tiny-mce-wrapper>
+    <form [formGroup]=tinyMCEFormGroup>
+        <div class="category-image-wrapper">
+            <mat-card>
+                <mat-card-title>
+                    <h3>Post Image</h3>
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-form-field>
+                        <input formControlName="postImageUrlControl" matInput placeholder="The post's image url..." />
+                        <button mat-button *ngIf="this.tinyMCEFormGroup.get('postImageUrlControl').valid" matSuffix
+                            mat-icon-button aria-label="Clear"
+                            (click)="this.tinyMCEFormGroup.get('postImageUrlControl').setValue('')">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </mat-card-content>
+            </mat-card>
+            <mat-card>
+                <mat-card-title>
+                    <h3>Category</h3>
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-radio-group class="categories-radio-group" formControlName="postCategoryControl">
+                        <mat-radio-button class="category-radio-button" *ngFor="let category of this.fetchedCategories"
+                            [value]="category">
+                            {{category.name}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="category-image-wrapper">
+            <mat-card>
+                <mat-card-title>
+                    <h3>Title</h3>
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-form-field class="example-full-width">
+                        <input formControlName="postTitleControl" matInput #message maxlength="62"
+                            placeholder="The post's title">
+                        <mat-hint [align]="'end'">{{message.value.length}} / 62</mat-hint>
+                    </mat-form-field>
+                </mat-card-content>
+            </mat-card>
+            <mat-card>
+                <mat-card-title>
+                    <h3>Description</h3>
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-form-field class="example-full-width">
+                        <input formControlName="postDescriptionControl" matInput #message maxlength="150"
+                            placeholder="A few words about this post">
+                        <mat-hint [align]="'end'">{{message.value.length}} / 150</mat-hint>
+                    </mat-form-field>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <editor formControlName="tinyMCEControl" [init]="config"></editor>
+    </form>
+    <button mat-raised-button color="primary" (click)="uploadPost()">Upload Post</button>
+</section>

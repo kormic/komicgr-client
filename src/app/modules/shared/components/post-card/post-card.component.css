@@ -1,0 +1,43 @@
+[mat-card-image] {
+    height: 335px;
+    object-fit: cover;
+}
+
+.post {
+    display: block;
+    padding: 8px;
+}
+
+.post:hover {
+    cursor: pointer;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-image {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 47px;
+    width: 47px;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+    .post {
+        width: 32%;
+        display: inline-block;
+        padding: 0.667%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .post {
+        width: 32%;
+        display: inline-block;
+        padding: 8px 0.667%;
+    }
+}

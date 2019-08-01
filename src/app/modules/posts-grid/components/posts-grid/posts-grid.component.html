@@ -1,0 +1,14 @@
+<ng-container *ngIf="posts.length" >
+    <div class="grid-posts-wrapper space-with-paginator">
+        <app-post-card [post]="post" *ngFor="let post of posts"></app-post-card>
+    </div>
+    <mat-paginator [length]="posts.length" [pageSize]="pageSizeOptions[0]" [pageSizeOptions]="pageSizeOptions"
+        (page)="paginate($event)">
+    </mat-paginator>
+</ng-container>
+<ng-container *ngIf="!posts.length">
+    <div class="empty-posts-section">
+        <img src="../../../../../assets/images/lamp.png" alt="Lamp image">
+        <p>There are no posts in this category. Feel free to write one to share your knowledge...</p>
+    </div>
+</ng-container>

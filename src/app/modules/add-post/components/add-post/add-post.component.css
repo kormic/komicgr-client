@@ -1,0 +1,47 @@
+.tiny-mce-wrapper {
+    width: 95%;
+    margin: 10px auto;
+}
+
+mat-card {
+    margin-bottom: 10px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-radio-button {
+    margin-left: 16px;
+}
+
+button[mat-raised-button] {
+    width: 100%;
+    margin: 15px 0px;
+}
+
+#category-radio-group-label {
+    font-weight: 400;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .category-image-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .category-image-wrapper> mat-card {
+        flex-basis: 45%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .category-image-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .category-image-wrapper> mat-card {
+        flex-basis: 46.9%;
+    }
+}

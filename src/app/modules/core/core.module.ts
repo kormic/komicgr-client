@@ -11,7 +11,7 @@ import { CategoriesService } from './services/categories/categories.service';
 import { PostsService } from './services/posts/posts.service';
 import { LoaderHttpInteceptorService } from './services/interceptors/loader-http-inteceptor.service';
 import { LoaderComponent } from './components/loader/loader.component';
-import { MatProgressSpinnerModule } from '@angular/material';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');

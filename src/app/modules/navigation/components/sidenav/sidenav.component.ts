@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit {
-  @ViewChild('sidenav', { static: false }) sidenav: MatSidenav;
+  @ViewChild('sidenav') sidenav: MatSidenav;
 
   categories$: Observable<Category[]>;
 

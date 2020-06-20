@@ -1,19 +1,22 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button class="menu-button" mat-icon-button (click)="logoIconClicked.emit()">
+    <button
+      class="menu-button"
+      mat-icon-button
+      (click)="logoIconClicked.emit()"
+    >
       <mat-icon>menu</mat-icon>
     </button>
-    <div class="logo" (click)="navigateToHome()">
-    </div>
+    <div class="logo" (click)="navigateToHome()"></div>
     <div class="toolbar-links-container">
       <ul class="toolbar-links">
         <li *ngIf="!(authService.$isLoggedIn | async)">
           <mat-icon class="pd-right">person_add</mat-icon>
-          <a routerLink='/register'>Register</a>
+          <a routerLink="/register">Register</a>
         </li>
         <li *ngIf="!(authService.$isLoggedIn | async)">
           <mat-icon class="pd-right">exit_to_app</mat-icon>
-          <a routerLink='/login'>Login</a>
+          <a routerLink="/login">Login</a>
         </li>
         <li *ngIf="authService.$isLoggedIn | async">
           <mat-icon class="pd-right">power_settings_new</mat-icon>
@@ -22,20 +25,20 @@
       </ul>
     </div>
     <div class="toolbar-menu-container">
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
         <ng-container *ngIf="!(authService.$isLoggedIn | async)">
-          <a mat-menu-item
-            routerLink='/register'
-          >
+          <a mat-menu-item routerLink="/register">
             <mat-icon>person_add</mat-icon>
             <span>Register</span>
           </a>
-          <a mat-menu-item
-            routerLink='/login'
-          >
+          <a mat-menu-item routerLink="/login">
             <mat-icon>exit_to_app</mat-icon>
             <span>Login</span>
           </a>
@@ -49,7 +52,13 @@
       </mat-menu>
     </div>
   </mat-toolbar-row>
+</mat-toolbar>
+<mat-toolbar>
   <mat-toolbar-row *ngIf="authService.$isLoggedIn | async" class="subheader">
-    <app-side-nav-list [categories]="categories$ | async" [showItemsHorizontal]="true" [showSubHeaders]="false"></app-side-nav-list>
+    <app-side-nav-list
+      [categories]="categories$ | async"
+      [showItemsHorizontal]="true"
+      [showSubHeaders]="false"
+    ></app-side-nav-list>
   </mat-toolbar-row>
 </mat-toolbar>

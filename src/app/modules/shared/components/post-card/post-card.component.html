@@ -1,29 +1,49 @@
 <div matRipple class="post" (click)="navigateToPostPage()">
-    <article>
-        <mat-card>
-            <mat-card-header>
-                <div mat-card-avatar class="header-image" [ngStyle]="{'background-image': 'url(' + environment.url + post.profileImageUrl + ')'}"></div>
-                <mat-card-title>{{post.title}}</mat-card-title>
-                <mat-card-subtitle>{{post.createdAt | date}}</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image [src]="post.imageUrl" onError="this.src='https://via.placeholder.com/460x335?text=Image+Not+Found'" alt="post image">
-            <mat-card-content>
-                <p>
-                    {{post.short_body}}
-                </p>
-                <div class="post-footer">
-                    <mat-chip-list class="disabled">
-                        <mat-chip color="primary" selected>Tag 1</mat-chip>
-                        <mat-chip color="accent" selected>tag 2</mat-chip>
-                        <mat-chip color="primary">Tag 3</mat-chip>
-                    </mat-chip-list>
-                    <span>
-                        <!-- <mat-icon color="warn">favorite_border</mat-icon> -->
-                        <mat-icon *ngIf="post.likes > 10" color="accent">whatshot</mat-icon>
-                        <mat-icon matBadge="{{post.likes ? post.likes : 0}}" matBadgeColor="primary" mat-badge-size="large" matBadgePosition="above before">thumb_up</mat-icon>
-                    </span>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </article>
+  <article>
+    <mat-card>
+      <mat-card-header>
+        <div
+          mat-card-avatar
+          class="header-image"
+          [ngStyle]="{
+            'background-image':
+              'url(' + environment.url + post.profileImageUrl + ')'
+          }"
+        ></div>
+        <mat-card-title>{{ post.title }}</mat-card-title>
+        <mat-card-subtitle>{{ post.createdAt | date }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        mat-card-image
+        [src]="
+          environment.imageServiceUrl + 'q_50,h_335,c_scale/' + post.imageUrl
+        "
+        onError="this.src='https://via.placeholder.com/460x335?text=Image+Not+Found'"
+        alt="post image"
+      />
+      <mat-card-content>
+        <p>
+          {{ post.short_body }}
+        </p>
+        <div class="post-footer">
+          <mat-chip-list class="disabled">
+            <mat-chip color="primary" selected>Tag 1</mat-chip>
+            <mat-chip color="accent" selected>tag 2</mat-chip>
+            <mat-chip color="primary">Tag 3</mat-chip>
+          </mat-chip-list>
+          <span>
+            <!-- <mat-icon color="warn">favorite_border</mat-icon> -->
+            <mat-icon *ngIf="post.likes > 10" color="accent">whatshot</mat-icon>
+            <mat-icon
+              matBadge="{{ post.likes ? post.likes : 0 }}"
+              matBadgeColor="primary"
+              mat-badge-size="large"
+              matBadgePosition="above before"
+              >thumb_up</mat-icon
+            >
+          </span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </article>
 </div>

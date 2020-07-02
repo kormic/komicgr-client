@@ -4,8 +4,9 @@ import * as config from '../../../../../assets/config.json';
 import { AddPostDTO } from 'src/app/domain/dto/AddPostDTO.js';
 import { PostsService } from 'src/app/modules/core/services/posts/posts.service.js';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/domain/model/Category.js';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-post',
@@ -19,9 +20,11 @@ export class AddPostComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private fb: FormBuilder,
     private postsService: PostsService,
-    private jwtHelperService: JwtHelperService
+    private jwtHelperService: JwtHelperService,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -41,6 +44,7 @@ export class AddPostComponent implements OnInit {
   uploadPost() {
     const decodedToken = this.jwtHelperService.decodeToken();
     const now = new Date();
+    const categoryId = this.tinyMCEFormGroup.get('postCategoryControl').value.id;
 
     const addPostDTO: AddPostDTO = {
       user_id: decodedToken.Id,
@@ -49,9 +53,14 @@ export class AddPostComponent implements OnInit {
       body: this.tinyMCEFormGroup.get('tinyMCEControl').value,
       createdAt: now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate(),
       imageUrl: this.tinyMCEFormGroup.get('postImageUrlControl').value,
-      categoryId: this.tinyMCEFormGroup.get('postCategoryControl').value.id
+      categoryId 
     };
 
-    this.postsService.addPost(addPostDTO).subscribe(response => console.log(response));
+    this.postsService.addPost(addPostDTO).subscribe(response => {
+      this._snackBar.open(response.msg, 'Dismiss', { duration: 5 * 1000});
+      if (response.success) {
+        this.router.navigate(['/posts'], { queryParams: { categoryId  } })
+      }
+    });
   }
 }

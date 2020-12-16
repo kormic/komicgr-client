@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/modules/core/services/user-service/user-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environment';
+import { UserProfile } from 'src/app/domain/model/UserProfile';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +14,7 @@ export class ProfileComponent implements OnInit {
   // TODO: This doesn't look so good. Maybe create a
   // service to get this data from or pass it an http interceptor
   environment = environment;
-  userProfile: any;
+  userProfile: UserProfile;
   time = new Date().getTime() + Math.random() * 100;
 
   constructor(
@@ -23,8 +24,8 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.activatedRoute.data.subscribe(data => {
-      this.userProfile = data.profileData;
+    this.activatedRoute.data.subscribe(({ profileData }: { profileData: UserProfile }) => {
+      this.userProfile = profileData;
     });
   }
 

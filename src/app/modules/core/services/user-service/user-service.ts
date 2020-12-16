@@ -3,6 +3,7 @@ import { HttpParentService } from '../../services/http-parent/http-parent.servic
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { RegisterUserDTO } from 'src/app/domain/dto/RegisterUserDTO';
+import { UserProfile } from 'src/app/domain/model/UserProfile';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +21,11 @@ export class UserService {
     return this.httpParent.postRequest('/users/register', user, this.headers);
   }
 
-  getUserProfile(): Observable<any> {
+  getUserProfile(): Observable<{ user: UserProfile }> {
     return this.httpParent.getRequest('/users/profile');
   }
 
-  getUserByPostId(postId: number): Observable<any> {
+  getUserByPostId(postId: number): Observable<{ user: UserProfile }> {
     return this.httpParent.getRequest('/users/byPostId/' + postId);
   }
 

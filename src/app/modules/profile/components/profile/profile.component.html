@@ -8,7 +8,7 @@
                             [ngStyle]="{'background-image': 'url(' + 'http://localhost:3000/' + userProfile.profileImageUrl + ')'}">
                         </div> -->
                         <div mat-card-avatar class="header-image">
-                            <img [src]="environment.url + userProfile.profileImageUrl + '?' + time" alt="Profile Image" onError="this.src='../../../../../assets/images/profile-default.ico';">
+                            <img [src]="environment.url + userProfile.profile_image_url + '?' + time" alt="Profile Image" onError="this.src='../../../../../assets/images/profile-default.ico';">
                         </div>
                         <h3>{{userProfile.username}}</h3>
                         <span>{{userProfile.job_desc}}</span>

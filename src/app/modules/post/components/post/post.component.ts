@@ -4,6 +4,7 @@ import { Post } from 'src/app/domain/model/Post';
 import { LikePostDTO } from '../../../../domain/dto/LikePostDTO';
 import { PostsService } from 'src/app/modules/core/services/posts/posts.service';
 import { environment } from 'src/environments/environment';
+import { UserProfile } from 'src/app/domain/model/UserProfile';
 
 @Component({
   selector: 'app-post',
@@ -15,7 +16,7 @@ export class PostComponent implements OnInit {
   // service to get this data from or pass it an http interceptor
   environment = environment;
   likesHovered: boolean;
-  userInfo: any;
+  userInfo: UserProfile;
   post: Post;
   time = new Date().getTime();
   likePostDTO: LikePostDTO = {

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "komicGR-client": {
+    "komicgr-client": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,16 +13,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/komicGR-client",
+            "outputPath": "dist/komicgr-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              { "glob": "**/*", "input": "node_modules/tinymce/skins", "output": "/tinymce/skins/" },
-              { "glob": "**/*", "input": "node_modules/tinymce/themes", "output": "/tinymce/themes/" },
-              { "glob": "**/*", "input": "node_modules/tinymce/plugins", "output": "/tinymce/plugins/" },
+              { "glob": "**/*", "input": "node_modules/tinymce", "output": "/tinymce/" },
               "src/favicon.ico",
               "src/assets"
             ],
@@ -67,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "komicGR-client:build",
+            "browserTarget": "komicgr-client:build",
           },
           "configurations": {
             "production": {
-              "browserTarget": "komicGR-client:build:production"
+              "browserTarget": "komicgr-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "komicGR-client:build"
+            "browserTarget": "komicgr-client:build"
           }
         },
         "test": {
@@ -115,15 +113,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "komicGR-client:serve"
+            "devServerTarget": "komicgr-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "komicGR-client:serve:production"
+              "devServerTarget": "komicgr-client:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "komicGR-client"
+  "defaultProject": "komicgr-client"
 }

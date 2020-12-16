@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to komicGR-client!');
+    expect(page.getTitleText()).toEqual('Welcome to komicgr-client!');
   });
 
   afterEach(async () => {

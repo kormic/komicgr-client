@@ -31,11 +31,11 @@ export class ProfileComponent implements OnInit {
 
   fileUploadInputChanged(event: any) {
     if (event.srcElement.files[0].size <= 200000) {
-      console.log(event.srcElement.files[0]);
+      // console.log(event.srcElement.files[0]);
       this.userService.uploadProfileImage(event.srcElement.files[0]).subscribe(response => {
         if (response.success) {
           this.time = new Date().getTime();
-          console.log(this.time);
+          // console.log(this.time);
         } else {
           this._snackBar.open(response.errorMessage, 'Dismiss', { duration: 3 * 1000 });
         }

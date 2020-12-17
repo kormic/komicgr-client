@@ -25,7 +25,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter,
-        whitelistedDomains: ['localhost:3000','api.komic.gr'],
+        allowedDomains: ['localhost:3000','api.komic.gr'],
         authScheme: 'JWT '
       }
     }),

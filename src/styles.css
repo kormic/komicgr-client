@@ -23,3 +23,11 @@ mat-paginator {
 .space-with-paginator {
     padding-bottom: 90px;
 }
+
+pre {
+    padding: 10px;
+    background-color: rgb(247, 246, 243);
+    color: rgb(55, 53, 47);
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}

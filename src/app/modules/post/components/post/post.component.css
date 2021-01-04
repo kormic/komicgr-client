@@ -47,7 +47,8 @@
 
 .author-section,
 .likes-section,
-.share-section {
+.share-section,
+.author-actions-section {
     margin-bottom: 8px;
 }
 

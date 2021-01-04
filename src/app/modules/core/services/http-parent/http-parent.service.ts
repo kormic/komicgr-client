@@ -18,6 +18,10 @@ export class HttpParentService {
       return this.http.post(environment.url + url, body, { headers });
   }
 
+  deleteRequest(url: string) {
+    return this.http.delete(environment.url + url);
+  }
+
   getToken(): string | null {
     const storedToken = localStorage.getItem('token');
 

@@ -47,6 +47,10 @@ export class PostsService {
     return this.httpParent.getRequest(`/posts/likes/${postId}`);
   }
 
+  deletePost(postId: number) {
+    return this.httpParent.deleteRequest(`/posts/${postId}`);
+  }
+
   // setPostCategory(postId: number, categoryId: number): Observable<GeneralResponseDTO> { 
   //   let authToken = this.httpParent.getToken(); 
   //   let headers = new HttpHeaders({'Authorization': authToken}); 

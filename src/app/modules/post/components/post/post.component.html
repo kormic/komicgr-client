@@ -18,6 +18,14 @@
                 </div>
             </mat-card-content>
         </mat-card>
+        <mat-card *ngIf="this.post.user_id === this.userId" class="author-actions-section">
+            <mat-card-title>Author actions</mat-card-title>
+            <mat-card-content>
+                <div class="delete-section">
+                    <button mat-raised-button color="warn" (click)="deletePost()"><mat-icon>delete_forever</mat-icon>Delete</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
         <mat-card class="share-section disabled">
             <mat-card-title>Share</mat-card-title>
             <mat-card-content>

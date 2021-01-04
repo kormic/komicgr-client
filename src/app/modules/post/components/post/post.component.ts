@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/domain/model/Post';
 import { LikePostDTO } from '../../../../domain/dto/LikePostDTO';
 import { PostsService } from 'src/app/modules/core/services/posts/posts.service';
 import { environment } from 'src/environments/environment';
 import { UserProfile } from 'src/app/domain/model/UserProfile';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-post',
@@ -23,8 +24,12 @@ export class PostComponent implements OnInit {
     like: false,
     post_id: -1
   };
+  userId: number;
+  private helper = new JwtHelperService();
 
-  constructor(private activatedRoute: ActivatedRoute, private postsService: PostsService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private postsService: PostsService) {
+    this.userId = this.helper.decodeToken(localStorage.getItem('access_token')).Id;
+   }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(data => {
@@ -42,5 +47,15 @@ export class PostComponent implements OnInit {
         this.post.likes = noOfLikes.likes;
       })
     });
+  }
+
+  deletePost() {
+    const confirmDeletion = confirm('Are you sure you want to delete this post?');
+    
+    if (confirmDeletion) {
+      this.postsService.deletePost(this.post.id).subscribe(() => {
+        this.router.navigate(['/posts'])
+      })
+    }
   }
 }

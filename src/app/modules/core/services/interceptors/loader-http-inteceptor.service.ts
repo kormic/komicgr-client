@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { LoaderService } from '../loader/loader.service';
 import { catchError, finalize } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -22,7 +22,7 @@ export class LoaderHttpInteceptorService implements HttpInterceptor {
         this.authService.logoutUser();
         this.router.navigateByUrl('/login');
       }
-      return Observable.throw(e);
+      return throwError(e);
     }), finalize(() => this.loaderService.hideLoader()));
   }
 

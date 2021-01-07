@@ -27,7 +27,7 @@ export class PostComponent implements OnInit {
   userId: number;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private postsService: PostsService, private jwtHelper: JwtHelperService) {
-    this.userId = !this.jwtHelper.isTokenExpired() ? this.jwtHelper.decodeToken(localStorage.getItem('access_token')).Id : undefined;
+    this.userId = !this.jwtHelper.isTokenExpired(localStorage.getItem('access_token')) ? this.jwtHelper.decodeToken().Id : undefined;
    }
 
   ngOnInit() {
